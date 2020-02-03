@@ -1,5 +1,5 @@
 # stapla
-
+```
 [mac]$ git clone git@github.com:Ken1roKomatsu/stapla.git
 [mac]$ cd stapla/
 [mac]$ docker-compose up -d --build
@@ -16,3 +16,4 @@ http://localhost:8881/
 
 /work # php artisan migrate
 /work # exit
+```
