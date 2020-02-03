@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   # qpp
   app:
     build:
@@ -18,6 +19,7 @@ services:
         - DB_USERNAME=${DB_USER}
         - DB_PASSWORD=${DB_PASS}
         - TZ=${TZ}
+
   # web
   web:
     image: nginx:1.17-alpine
@@ -31,3 +33,20 @@ services:
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     environment:
       - TZ=${TZ}
+
+  # db
+  db:
+    image: mysql:8.0
+    volumes:
+      - db-store:/var/liv/mysql
+      - ./logs:/var/log/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
+      - TZ=${TZ}
+
+volumes:
+  db-store:
