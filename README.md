@@ -11,9 +11,7 @@
 (ここも時間かかります)
 /work # cp .env.example .env
 /work # php artisan key:generate
-
-http://localhost:8881/
-
 /work # php artisan migrate
 /work # exit
 ```
+http://localhost:8881/
